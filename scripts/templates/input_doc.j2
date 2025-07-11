@@ -1,0 +1,44 @@
+# {{ inp['title'] }}
+
+{{ inp['long_desc'] }}
+
+## Setup
+
+### Collecting logs from {{ inp['title'] }}
+
+#### Configuration Parameters
+
+{# iterate over all required fields -#}
+{% for param in sorted_params -%}
+{% if param['show_user'] -%}
+##### {{ param['title'] }}
+{% if param['required'] -%}
+*Required*
+{%- else -%}
+*Optional*
+{% endif %}
+
+*type*: {{ param['type'] }}
+
+*description*: {{ param['description'] }}
+{% endif %}
+{% endfor %}
+
+#### Advanced Parameters
+
+{# iterate over all required fields -#}
+{% for param in sorted_params -%}
+{% if param['show_user'] -%}
+#### {{ param['title'] }}
+{% if param['required'] -%}
+*Required*
+{%- else -%}
+*Optional*
+{% endif %}
+
+*type*: {{ param['type'] }}
+
+*description*: {{ param['description'] }}
+{% endif %}
+{% endfor %}
+

@@ -1,0 +1,98 @@
+inputs:
+  azure_blob_storage:
+    long_desc: |
+      The `azure_blob_storage` input package for Elastic allows users to read content from files stored in Azure Blob Storage containers. It supports both one-time data ingestion and continuous polling for new or updated files. This input is
+      designed to be resilient, resuming processing from the last successfully handled file in case of outages and logging errors for individual files without halting the entire process. Currently, it supports JSON and NDJSON blob formats, which
+      can also be gzip compressed.
+
+  azure_logs:
+    long_desc: |
+      The `azure_logs` input package for Elastic facilitates the collection of logs from various Azure services. It supports specialized integrations for services like Microsoft Entra ID (Sign-in, Audit, Identity Protection, Provisioning), Azure
+      Spring Apps, and Azure Firewall, as well as a generic integration for any Azure service. This input typically leverages Azure Event Hubs and Storage Accounts to ingest log data into Elasticsearch for analysis, visualization, and alerting
+      within Kibana. It helps users gain insights into their Azure environment for security, observability, and operational troubleshooting.
+
+  cel:
+    long_desc: |
+      The `cel` input package for Elastic allows for highly customizable data ingestion from various sources, including HTTP APIs and local file systems. It leverages the Common Expression Language (CEL) to define a program that both fetches and
+      processes data. This enables advanced users to create flexible data collection pipelines, handling tasks like making HTTP requests, parsing diverse payloads, and maintaining state for continuous collection.
+
+  gcp_metrics:
+    long_desc: |
+      The `gcp_metrics` input package for Elastic is designed to collect custom metrics from any Google Cloud Platform (GCP) service. It integrates with the GCP Cloud Monitoring API to gather a wide range of performance and operational data. This
+      allows users to monitor the health and performance of their GCP resources within Elastic, providing insights into various services like Compute Engine and Firestore. It's important to note that this package primarily focuses on metric
+      collection and typically requires custom ingest pipelines for pre-ingest data processing.
+
+  gcp_pubsub:
+    long_desc: |
+      The `gcp_pubsub` input package for Elastic enables real-time data ingestion from Google Cloud Pub/Sub topics. It allows users to subscribe to a Pub/Sub topic and pull messages, making it ideal for collecting various event-driven data like
+      Stackdriver logs. This input is designed for continuous processing, handling credentials and message acknowledgment to ensure reliable data flow into Elasticsearch for analysis.
+
+  google_cloud_storage:
+    long_desc: |
+      The `google_cloud_storage` input package for Elastic enables Logstash to read content from files stored in Google Cloud Storage (GCS) buckets. It allows for the ingestion of various data formats, such as CSV, JSON, and NDJSON, into
+      Elasticsearch. This input is crucial for use cases like importing Stackdriver logs, restoring data from Elastic dumps, or processing gzipped logs from cold storage within the Elastic Stack.
+
+  http_endpoint:
+    long_desc: |
+      The `http_endpoint` input package for Elastic initializes a listening HTTP server, allowing Logstash or Beats to collect incoming HTTP POST requests. It is designed to ingest JSON-formatted data, which can be an object or an array of objects.
+      This input is commonly used for receiving webhooks from third-party applications or services, facilitating real-time data ingestion into the Elastic Stack.
+
+  jolokia:
+    long_desc: |
+      The `jolokia` input package for Elastic collects metrics from Jolokia agents, which act as a JMX-HTTP bridge. It allows Logstash or Metricbeat to retrieve Java Management Extensions (JMX) metrics over HTTP in JSON format. This input is vital
+      for monitoring Java applications, providing insights into their performance and health by exposing MBean attributes and operations to the Elastic Stack.
+
+  journald:
+    long_desc: |
+      The `journald` input package for Elastic allows Filebeat to read and ingest log data directly from the systemd journal. This is particularly useful for Linux distributions that primarily use journald for system logging, providing access to
+      structured log data and associated metadata. It helps integrate system-level logs into the Elastic Stack for centralized analysis and monitoring.
+
+  log:
+    long_desc: |
+      The `log` input package for Elastic, primarily used by Filebeat, is designed to read and stream lines from various log files. It offers robust capabilities for monitoring specified file paths, collecting new log entries as they are written,
+      and forwarding them to Elasticsearch or other destinations. This input is essential for centralizing diverse log data from applications, servers, and other systems into the Elastic Stack for real-time analysis and troubleshooting.
+
+  prometheus_input:
+    long_desc: |
+      The `prometheus_input` package for Elastic is designed to collect metrics from Prometheus Exporters (Collectors) and send them to the Elastic Stack. This input allows users to ingest time-series data exposed by various services that are
+      instrumented for Prometheus. It's a crucial component for unifying Prometheus-collected metrics with logs and traces within Elasticsearch, providing a comprehensive observability solution.
+
+  sql:
+    long_desc: |
+      The `sql` input package for Elastic enables Logstash or Metricbeat to execute custom SQL queries against various relational databases. It retrieves the results of these queries and ingests them as structured events into Elasticsearch. This
+      input is highly flexible, supporting multiple database drivers (e.g., MySQL, PostgreSQL, Oracle, MSSQL) and allowing users to define specific SQL statements for pulling custom metrics or data.
+
+  statsd_input:
+    long_desc: |
+      The `statsd_input` package for Elastic creates a UDP server that listens for metrics in the StatsD format. This allows Logstash or Elastic Agent to collect application-specific metrics like counters, gauges, and timers, emitted by various
+      services. It's a key component for gathering custom performance data and integrating it into the Elastic Stack for real-time monitoring and analysis.
+
+  tcp:
+    long_desc: |
+      The `tcp` input package for Elastic establishes a listening TCP socket, allowing Logstash or Elastic Agent to receive and ingest data sent over TCP connections. This input is highly versatile, commonly used for collecting raw log lines,
+      events, or other structured data from applications and devices that communicate via the TCP protocol. It supports various codecs for parsing the incoming data and can be configured with SSL for secure communication.
+
+  udp:
+    long_desc: |
+      The `udp` input package for Elastic creates a listening UDP socket, allowing Logstash or Elastic Agent to receive and ingest data sent over UDP connections. This is particularly useful for collecting logs or metrics from sources that
+      transmit data via the unreliable but fast UDP protocol, such as syslog messages or custom application events. It provides flexibility for various data streams where guaranteed delivery is less critical than high throughput.
+
+  unifiedlogs:
+    long_desc: |
+      The `unifiedlogs` input package for Elastic is specifically designed to collect log data from Apple's Unified Logging System, found on macOS, iOS, watchOS, and tvOS. Unlike traditional text-based logs, Unified Logs centralize telemetry
+      in memory and on disk. This input allows Filebeat to stream these structured events, including details like process ID, thread ID, and log message, providing comprehensive insights into Apple ecosystem devices within the Elastic Stack.
+
+  websocket:
+    long_desc: |
+      The `websocket` input package for Elastic enables the ingestion of real-time data from WebSocket servers. It connects to a specified WebSocket URL, listens for incoming messages, and processes them as they arrive. This allows for
+      low-latency, full-duplex communication, making it ideal for streaming data like live updates, financial feeds, or IoT sensor data directly into the Elastic Stack for near real-time analysis.
+
+  windows_etw:
+    long_desc: |
+      The `windows_etw` input package for Elastic enables Filebeat to collect detailed event data directly from Event Tracing for Windows (ETW). This powerful Windows-native mechanism provides low-level telemetry about system performance and
+      application activity. The input supports various ETW providers and can operate in real-time by subscribing to new or existing sessions, or by processing pre-recorded .etl files for retrospective analysis.
+
+  winlog:
+    long_desc: |
+      The `winlog` input package for Elastic, typically used by Filebeat, is dedicated to collecting Windows event logs. It utilizes Windows APIs to read events from various logs such as Application, Security, and System. This input is crucial
+      for monitoring Windows systems, providing essential data for security analysis, troubleshooting, and general system health insights within the Elastic Stack.
