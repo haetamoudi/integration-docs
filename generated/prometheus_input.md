@@ -10,103 +10,24 @@ instrumented for Prometheus. It's a crucial component for unifying Prometheus-co
 
 #### Configuration Parameters
 
-##### Condition
-*Optional*
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
+| Condition | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Condition to filter when to collect this input. See [Dynamic Input Configuration](https://www.elastic.co/guide/en/fleet/current/dynamic-input-configuration.html) for details.  |
+| Datastream Dataset name | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text | Name of Datastream dataset  |
+| Hosts | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
+| Leader Election | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | bool | Enable leaderelection between a set of Elastic Agents running on Kubernetes. See [Kubernetes LeaderElection Provider](https://www.elastic.co/guide/en/fleet/current/kubernetes_leaderelection-provider.html) for details.  |
+| Password | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | password |   |
+| Period | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
+| Rate Counters | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | bool |   |
+| Use Types | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | bool |   |
+| Username | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
 
-*type*: text
+#### Advanced Configuration Parameters
 
-*description*: Condition to filter when to collect this input. See [Dynamic Input Configuration](https://www.elastic.co/guide/en/fleet/current/dynamic-input-configuration.html) for details.
-##### Datastream Dataset name
-*Required*
-*type*: text
-
-*description*: Name of Datastream dataset
-##### Hosts
-*Required*
-*type*: text
-
-*description*: 
-##### Leader Election
-*Required*
-*type*: bool
-
-*description*: Enable leaderelection between a set of Elastic Agents running on Kubernetes. See [Kubernetes LeaderElection Provider](https://www.elastic.co/guide/en/fleet/current/kubernetes_leaderelection-provider.html) for details.
-##### Password
-*Optional*
-
-*type*: password
-
-*description*: 
-##### Period
-*Required*
-*type*: text
-
-*description*: 
-##### Rate Counters
-*Required*
-*type*: bool
-
-*description*: 
-##### Use Types
-*Required*
-*type*: bool
-
-*description*: 
-##### Username
-*Optional*
-
-*type*: text
-
-*description*: 
-
-#### Advanced Parameters
-
-#### Condition
-*Optional*
-
-*type*: text
-
-*description*: Condition to filter when to collect this input. See [Dynamic Input Configuration](https://www.elastic.co/guide/en/fleet/current/dynamic-input-configuration.html) for details.
-#### Datastream Dataset name
-*Required*
-*type*: text
-
-*description*: Name of Datastream dataset
-#### Hosts
-*Required*
-*type*: text
-
-*description*: 
-#### Leader Election
-*Required*
-*type*: bool
-
-*description*: Enable leaderelection between a set of Elastic Agents running on Kubernetes. See [Kubernetes LeaderElection Provider](https://www.elastic.co/guide/en/fleet/current/kubernetes_leaderelection-provider.html) for details.
-#### Password
-*Optional*
-
-*type*: password
-
-*description*: 
-#### Period
-*Required*
-*type*: text
-
-*description*: 
-#### Rate Counters
-*Required*
-*type*: bool
-
-*description*: 
-#### Use Types
-*Required*
-*type*: bool
-
-*description*: 
-#### Username
-*Optional*
-
-*type*: text
-
-*description*: 
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
+| Metrics Filters Exclude | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
+| Metrics Filters Include | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
+| Processors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | Processors are used to reduce the number of fields in the exported event or to enhance the event with metadata. This executes in the agent before the events are shipped. See [Processors](https://www.elastic.co/guide/en/fleet/current/elastic-agent-processor-configuration.html) for details.     |
+| SSL Certificate Authorities | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | SSL Certificate Authorities. See [documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-ssl.html#client-certificate-authorities) for details.  |
 

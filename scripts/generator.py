@@ -14,11 +14,14 @@ def generate_doc(inputs):
     # inputs.yaml contains extra info on inputs which isn't contained in the manifest.
     # Add this extra info to each input key before generating the docs
     extras = {}
-    with open('inputs.yml', 'r') as extra_f:
+    with open(path.join(local_dir, 'inputs.yml'), 'r') as extra_f:
         extras = yaml.safe_load(extra_f)
     for k in extras.get('inputs').keys():
         if k in inputs.keys():
-            inputs[k]['long_desc'] = extras['inputs'][k]['long_desc']
+            for item in ['long_desc', 'setup_text']:
+                value = extras['inputs'][k].get(item)
+                if value is not None:
+                    inputs[k][item] = extras['inputs'][k][item]
 
     for k,v in inputs.items():
         write(path.join(GENERATE_DIR, f'{k}.md'), inputs_doc(v))

@@ -11,97 +11,20 @@ collection and typically requires custom ingest pipelines for pre-ingest data pr
 
 #### Configuration Parameters
 
-##### Credentials File
-*Optional*
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
+| Credentials File | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
+| Credentials Json | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
+| Exclude Labels | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | bool | Exclude additional labels from metrics  |
+| GCP Metrics | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
+| Project Id | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
+| GCP Regions | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
+| GCP Service | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
+| GCP Zone | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
 
-*type*: text
+#### Advanced Configuration Parameters
 
-*description*: 
-##### Credentials Json
-*Optional*
-
-*type*: text
-
-*description*: 
-##### Exclude Labels
-*Optional*
-
-*type*: bool
-
-*description*: Exclude additional labels from metrics
-##### GCP Metrics
-*Required*
-*type*: text
-
-*description*: 
-##### Project Id
-*Required*
-*type*: text
-
-*description*: 
-##### GCP Regions
-*Optional*
-
-*type*: text
-
-*description*: 
-##### GCP Service
-*Required*
-*type*: text
-
-*description*: 
-##### GCP Zone
-*Optional*
-
-*type*: text
-
-*description*: 
-
-#### Advanced Parameters
-
-#### Credentials File
-*Optional*
-
-*type*: text
-
-*description*: 
-#### Credentials Json
-*Optional*
-
-*type*: text
-
-*description*: 
-#### Exclude Labels
-*Optional*
-
-*type*: bool
-
-*description*: Exclude additional labels from metrics
-#### GCP Metrics
-*Required*
-*type*: text
-
-*description*: 
-#### Project Id
-*Required*
-*type*: text
-
-*description*: 
-#### GCP Regions
-*Optional*
-
-*type*: text
-
-*description*: 
-#### GCP Service
-*Required*
-*type*: text
-
-*description*: 
-#### GCP Zone
-*Optional*
-
-*type*: text
-
-*description*: 
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
+| Period | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
 

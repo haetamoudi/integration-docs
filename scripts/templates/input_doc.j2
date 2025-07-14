@@ -8,37 +8,43 @@
 
 #### Configuration Parameters
 
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
 {# iterate over all required fields -#}
 {% for param in sorted_params -%}
 {% if param['show_user'] -%}
-##### {{ param['title'] }}
+{% set row %}
+| {{ param['title'] }}
 {% if param['required'] -%}
-*Required*
-{%- else -%}
-*Optional*
-{% endif %}
-
-*type*: {{ param['type'] }}
-
-*description*: {{ param['description'] }}
+| ![Required](https://img.shields.io/badge/✔-93c93e?style=flat)
+{% else -%}
+| ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat)
+{% endif -%}
+| {{ param['type'] }}
+| {{ param['description'] }}
+{% endset %}
+{{ row | replace("\n", " ") }} |
 {% endif %}
 {% endfor %}
 
-#### Advanced Parameters
+#### Advanced Configuration Parameters
 
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
 {# iterate over all required fields -#}
 {% for param in sorted_params -%}
-{% if param['show_user'] -%}
-#### {{ param['title'] }}
+{% if not param['show_user'] -%}
+{% set row %}
+| {{ param['title'] }}
 {% if param['required'] -%}
-*Required*
-{%- else -%}
-*Optional*
-{% endif %}
-
-*type*: {{ param['type'] }}
-
-*description*: {{ param['description'] }}
+| ![Required](https://img.shields.io/badge/✔-93c93e?style=flat)
+{% else -%}
+| ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat)
+{% endif -%}
+| {{ param['type'] }}
+| {{ param['description'] }}
+{% endset %}
+{{ row | replace("\n", " ") }} |
 {% endif %}
 {% endfor %}
 
