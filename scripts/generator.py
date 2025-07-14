@@ -1,7 +1,9 @@
 from functools import wraps
 import os
 from os import path
+import git
 import jinja2
+import shutil
 import yaml
 
 def generate_doc(inputs):
@@ -13,7 +15,7 @@ def generate_doc(inputs):
     # inputs.yaml contains extra info on inputs which isn't contained in the manifest.
     # Add this extra info to each input key before generating the docs
     extras = {}
-    with open(path.join(local_dir, 'inputs.yml'), 'r') as extra_f:
+    with open(path.join(LOCAL_DIR, 'inputs.yml'), 'r') as extra_f:
         extras = yaml.safe_load(extra_f)
     for k in extras.get('inputs').keys():
         if k in inputs.keys():
@@ -82,6 +84,28 @@ def find_inputs(integrations_dir):
                 input_dict[manifest['name']] = manifest
     return input_dict
 
+def get_tree_by_url(
+    url: str,
+    git_ref: str,
+) -> git.objects.tree.Tree:
+    repo: git.repo.base.Repo
+    clone_from_remote = False
+    if os.path.exists(LOCAL_TARGET_GIT_DIR):
+        repo = git.Repo(LOCAL_TARGET_GIT_DIR)
+
+        if not git_ref in repo.tags and not git_ref in repo.branches:
+            shutil.rmtree(LOCAL_TARGET_GIT_DIR)
+            clone_from_remote = True
+    else:
+        clone_from_remote = True
+
+    if clone_from_remote:
+        print(f'Loading elastic/integrations version "{git_ref}"')
+        repo = git.Repo.clone_from(url, LOCAL_TARGET_GIT_DIR, branch=git_ref)
+
+    repo.git.checkout(git_ref)
+    return repo.head.commit.tree
+
 
 @templated('input_doc.j2')
 def inputs_doc(input_info):
@@ -95,10 +119,13 @@ def inputs_doc(input_info):
     sorted_params = sorted(policy_templates[0].get('vars'), key=lambda v: v['name'])
     return {"inp": input_info, "sorted_params": sorted_params}
 
-local_dir = path.dirname(path.abspath(__file__))
-INTEGRATIONS_DIR = path.expanduser('~/git/integrations/')
-TEMPLATE_DIR = path.join(local_dir, './templates')
-GENERATE_DIR = path.join(local_dir, '../generated')
+LOCAL_DIR = path.dirname(path.abspath(__file__))
+TEMPLATE_DIR = path.join(LOCAL_DIR, './templates')
+GENERATE_DIR = path.join(LOCAL_DIR, '../generated')
+LOCAL_TARGET_GIT_DIR = path.join(LOCAL_DIR, "./build/integrations/")
+INTEGRATIONS_GIT = "https://github.com/elastic/integrations.git"
+INTEGRATIONS_VERSION = "main"
+
 template_loader = jinja2.FileSystemLoader(searchpath=TEMPLATE_DIR)
 template_env = jinja2.Environment(loader=template_loader,
                                   keep_trailing_newline=True,
@@ -106,5 +133,6 @@ template_env = jinja2.Environment(loader=template_loader,
                                   lstrip_blocks=False)
 
 if __name__ == '__main__':
-    inputs_dict = find_inputs(INTEGRATIONS_DIR)
+    get_tree_by_url(INTEGRATIONS_GIT, INTEGRATIONS_VERSION)
+    inputs_dict = find_inputs(LOCAL_TARGET_GIT_DIR)
     generate_doc(inputs_dict)
