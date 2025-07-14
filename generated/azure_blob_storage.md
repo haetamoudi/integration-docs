@@ -9,6 +9,7 @@ can also be gzip compressed.
 
 ### Collecting logs from Custom Azure Blob Storage Input
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

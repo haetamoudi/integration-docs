@@ -8,6 +8,7 @@ Elasticsearch. This input is crucial for use cases like importing Stackdriver lo
 
 ### Collecting logs from Custom GCS (Google Cloud Storage) Input
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

@@ -8,6 +8,7 @@ for monitoring Windows systems, providing essential data for security analysis, 
 
 ### Collecting logs from Custom Windows Event Logs
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

@@ -8,6 +8,7 @@ application activity. The input supports various ETW providers and can operate i
 
 ### Collecting logs from Custom Windows ETW logs
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

@@ -1,0 +1,14 @@
+{# macro - param_row #}
+{%- macro param_row(param) -%}
+{% set row %}
+| {{ param['title'] }}
+{% if param['required'] -%}
+| ![Required](https://img.shields.io/badge/✔-93c93e?style=flat)
+{% else -%}
+| ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat)
+{% endif -%}
+| {{ param['type'] }}
+| {{ param['description'] }}
+{% endset %}
+{{ row | replace("\n", " ") }} |
+{%- endmacro -%}

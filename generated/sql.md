@@ -8,6 +8,7 @@ input is highly flexible, supporting multiple database drivers (e.g., MySQL, Pos
 
 ### Collecting logs from SQL Input
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

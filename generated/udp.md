@@ -8,6 +8,7 @@ transmit data via the unreliable but fast UDP protocol, such as syslog messages 
 
 ### Collecting logs from Custom UDP Logs
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

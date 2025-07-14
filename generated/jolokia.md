@@ -8,6 +8,7 @@ for monitoring Java applications, providing insights into their performance and 
 
 ### Collecting logs from Jolokia Input
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

@@ -8,6 +8,7 @@ processes data. This enables advanced users to create flexible data collection p
 
 ### Collecting logs from Custom API using Common Expression Language
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

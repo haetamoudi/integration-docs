@@ -8,6 +8,7 @@ structured log data and associated metadata. It helps integrate system-level log
 
 ### Collecting logs from Custom Journald logs
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

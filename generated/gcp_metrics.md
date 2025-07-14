@@ -9,6 +9,7 @@ collection and typically requires custom ingest pipelines for pre-ingest data pr
 
 ### Collecting logs from GCP Metrics Input
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

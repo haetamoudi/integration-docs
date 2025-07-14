@@ -1,3 +1,4 @@
+{%- import 'macros.j2' as macros -%}
 # {{ inp['title'] }}
 
 {{ inp['long_desc'] }}
@@ -6,6 +7,7 @@
 
 ### Collecting logs from {{ inp['title'] }}
 
+{{ inp['setup_text'] }}
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |
@@ -13,17 +15,7 @@
 {# iterate over all required fields -#}
 {% for param in sorted_params -%}
 {% if param['show_user'] -%}
-{% set row %}
-| {{ param['title'] }}
-{% if param['required'] -%}
-| ![Required](https://img.shields.io/badge/✔-93c93e?style=flat)
-{% else -%}
-| ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat)
-{% endif -%}
-| {{ param['type'] }}
-| {{ param['description'] }}
-{% endset %}
-{{ row | replace("\n", " ") }} |
+{{ macros.param_row(param) }}
 {% endif %}
 {% endfor %}
 
@@ -34,17 +26,7 @@
 {# iterate over all required fields -#}
 {% for param in sorted_params -%}
 {% if not param['show_user'] -%}
-{% set row %}
-| {{ param['title'] }}
-{% if param['required'] -%}
-| ![Required](https://img.shields.io/badge/✔-93c93e?style=flat)
-{% else -%}
-| ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat)
-{% endif -%}
-| {{ param['type'] }}
-| {{ param['description'] }}
-{% endset %}
-{{ row | replace("\n", " ") }} |
+{{ macros.param_row(param) }}
 {% endif %}
 {% endfor %}
 

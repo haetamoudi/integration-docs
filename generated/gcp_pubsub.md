@@ -8,6 +8,7 @@ Stackdriver logs. This input is designed for continuous processing, handling cre
 
 ### Collecting logs from Custom Google Pub/Sub Logs
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

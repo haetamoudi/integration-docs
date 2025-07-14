@@ -8,6 +8,7 @@ low-latency, full-duplex communication, making it ideal for streaming data like 
 
 ### Collecting logs from Custom Websocket logs
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

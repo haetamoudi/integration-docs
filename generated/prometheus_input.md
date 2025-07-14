@@ -8,6 +8,7 @@ instrumented for Prometheus. It's a crucial component for unifying Prometheus-co
 
 ### Collecting logs from Prometheus Input
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

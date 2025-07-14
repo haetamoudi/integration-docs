@@ -9,6 +9,7 @@ within Kibana. It helps users gain insights into their Azure environment for sec
 
 ### Collecting logs from Custom Azure Logs
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

@@ -8,6 +8,7 @@ in memory and on disk. This input allows Filebeat to stream these structured eve
 
 ### Collecting logs from Custom macOS Unified Logs
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

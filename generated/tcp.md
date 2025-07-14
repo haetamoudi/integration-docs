@@ -8,6 +8,9 @@ events, or other structured data from applications and devices that communicate 
 
 ### Collecting logs from Custom TCP Logs
 
+To collect logs with the `tcp` input, configure the Listen Address and Listen Port. When deployed with Elastic Agent, the agent will listen for TCP messages on the configured address and port.
+If a secure TCP connection is used, you may need to specify the SSL details in the `SSL` parameter.
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

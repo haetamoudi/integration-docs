@@ -1,8 +1,7 @@
 from functools import wraps
-import jinja2
 import os
 from os import path
-from pathlib import Path
+import jinja2
 import yaml
 
 def generate_doc(inputs):
@@ -94,8 +93,7 @@ def inputs_doc(input_info):
     """
     policy_templates = input_info.get('policy_templates')
     sorted_params = sorted(policy_templates[0].get('vars'), key=lambda v: v['name'])
-    return dict(inp=input_info,
-            sorted_params=sorted_params)
+    return {"inp": input_info, "sorted_params": sorted_params}
 
 local_dir = path.dirname(path.abspath(__file__))
 INTEGRATIONS_DIR = path.expanduser('~/git/integrations/')

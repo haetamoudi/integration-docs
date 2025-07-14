@@ -8,6 +8,7 @@ services. It's a key component for gathering custom performance data and integra
 
 ### Collecting logs from StatsD Input
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

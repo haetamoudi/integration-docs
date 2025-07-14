@@ -8,6 +8,7 @@ and forwarding them to Elasticsearch or other destinations. This input is essent
 
 ### Collecting logs from Custom Logs (Deprecated)
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |

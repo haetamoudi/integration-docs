@@ -71,6 +71,10 @@ inputs:
     long_desc: |
       The `tcp` input package for Elastic establishes a listening TCP socket, allowing Logstash or Elastic Agent to receive and ingest data sent over TCP connections. This input is highly versatile, commonly used for collecting raw log lines,
       events, or other structured data from applications and devices that communicate via the TCP protocol. It supports various codecs for parsing the incoming data and can be configured with SSL for secure communication.
+    setup_text: |
+      To collect logs with the `tcp` input, configure the Listen Address and Listen Port. When deployed with Elastic Agent, the agent will listen for TCP messages on the configured address and port.
+      If a secure TCP connection is used, you may need to specify the SSL details in the `SSL` parameter.
+
 
   udp:
     long_desc: |

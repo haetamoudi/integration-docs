@@ -8,6 +8,7 @@ This input is commonly used for receiving webhooks from third-party applications
 
 ### Collecting logs from Custom HTTP Endpoint Logs
 
+
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |
