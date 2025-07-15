@@ -5,12 +5,10 @@ transmit data via the unreliable but fast UDP protocol, such as syslog messages 
 
 For more details about the UDP input settings, check the [Filebeat documentation](https://www.elastic.co/docs/reference/beats/filebeat/filebeat-input-udp).
 
-setup_text: |
-  To collect logs via UDP, select **Collect logs via UDP** and configure the following parameters:
-
 
 ## Setup
 
+To collect logs via UDP, select **Collect logs via UDP** and configure the following parameters:
 
 #### Configuration Parameters
 
