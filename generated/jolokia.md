@@ -6,8 +6,6 @@ for monitoring Java applications, providing insights into their performance and 
 
 ## Setup
 
-### Collecting logs from Jolokia Input
-
 
 #### Configuration Parameters
 
@@ -36,4 +34,3 @@ for monitoring Java applications, providing insights into their performance and 
 | SSL Verification Mode | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | SSL verification mode. See [documentation](https://www.elastic.co/guide/en/fleet/current/elastic-agent-ssl-configuration.html) for details.  |
 | HTTP config options: timeout | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Total time limit for HTTP requests made by the module (Default 10 seconds)  |
 | HTTP config options: Username | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | The username to use for basic authentication.  |
-

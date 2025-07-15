@@ -6,8 +6,6 @@ Elasticsearch. This input is crucial for use cases like importing Stackdriver lo
 
 ## Setup
 
-### Collecting logs from Custom GCS (Google Cloud Storage) Input
-
 
 #### Configuration Parameters
 
@@ -34,4 +32,3 @@ Elasticsearch. This input is crucial for use cases like importing Stackdriver lo
 | File Selectors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | If the GCS bucket will have events that correspond to files that this integration shouldn’t process, file_selectors can be used to limit the files that are downloaded. This is a list of selectors which is made up of regex patters. The regex should match the GCS bucket filepath. Regexes use [RE2 syntax](https://pkg.go.dev/regexp/syntax). Files that don’t match one of the regexes will not be processed.   |
 | Processors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | Processors are used to reduce the number of fields in the exported event or to enhance the event with metadata. This executes in the agent before the logs are parsed. See [Processors](https://www.elastic.co/guide/en/beats/filebeat/current/filtering-and-enhancing-data.html) for details.   |
 | Timestamp Epoch | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | integer | Defines the epoch time in seconds, which is used to filter out objects/files that are older than the specified timestamp.  |
-

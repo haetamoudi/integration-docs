@@ -3,11 +3,14 @@
 The `winlog` input package for Elastic, typically used by Filebeat, is dedicated to collecting Windows event logs. It utilizes Windows APIs to read events from various logs such as Application, Security, and System. This input is crucial
 for monitoring Windows systems, providing essential data for security analysis, troubleshooting, and general system health insights within the Elastic Stack.
 
+For more details about the Winlog input settings, check the [Filebeat documentation](https://www.elastic.co/docs/reference/beats/filebeat/filebeat-input-winlog).
+
 
 ## Setup
 
-### Collecting logs from Custom Windows Event Logs
+The `winlog` input package for Elastic, is dedicated to collecting Windows event logs. It utilizes Windows APIs to read events from various logs such as Application, Security, and System.
 
+To collect logs via Winlog, select **Collect logs via Winlog** and configure the following parameters:
 
 #### Configuration Parameters
 
@@ -30,4 +33,3 @@ for monitoring Windows systems, providing essential data for security analysis, 
 | Providers | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | A list of providers (source names) to include.  |
 | Tags | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Tags to include in the published event  |
 | XML Query | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Provide a custom XML query. This option is mutually exclusive with the `name`, `event_id`, `ignore_older`, `level`, and `providers` options. These options should be included in the XML query directly. Furthermore, an id must be provided. Custom XML queries provide more flexibility and advanced options than the simpler query options.  |
-

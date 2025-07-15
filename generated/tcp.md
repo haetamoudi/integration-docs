@@ -3,13 +3,15 @@
 The `tcp` input package for Elastic establishes a listening TCP socket, allowing Logstash or Elastic Agent to receive and ingest data sent over TCP connections. This input is highly versatile, commonly used for collecting raw log lines,
 events, or other structured data from applications and devices that communicate via the TCP protocol. It supports various codecs for parsing the incoming data and can be configured with SSL for secure communication.
 
+For more details about the TCP input settings, check the [Filebeat documentation](https://www.elastic.co/docs/reference/beats/filebeat/filebeat-input-tcp).
+
 
 ## Setup
 
-### Collecting logs from Custom TCP Logs
-
 To collect logs with the `tcp` input, configure the Listen Address and Listen Port. When deployed with Elastic Agent, the agent will listen for TCP messages on the configured address and port.
 If a secure TCP connection is used, you may need to specify the SSL details in the `SSL` parameter.
+
+To collect logs via UDP, select **Collect logs via UDP** and configure the following parameters:
 
 #### Configuration Parameters
 
@@ -37,4 +39,3 @@ If a secure TCP connection is used, you may need to specify the SSL details in t
 | SSL Configuration | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | SSL configuration options. See [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-ssl.html#ssl-common-config) for details.  |
 | Syslog Configuration | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | i.e. field, format, time zone, etc. See [Syslog](https://www.elastic.co/guide/en/beats/filebeat/current/syslog.html) for details.  |
 | Timeout | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | The duration of inactivity before a remote connection is closed. The default is 300s. Valid time units are ns, us, ms, s, m, h.  |
-

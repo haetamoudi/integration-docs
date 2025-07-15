@@ -3,10 +3,13 @@
 The `udp` input package for Elastic creates a listening UDP socket, allowing Logstash or Elastic Agent to receive and ingest data sent over UDP connections. This is particularly useful for collecting logs or metrics from sources that
 transmit data via the unreliable but fast UDP protocol, such as syslog messages or custom application events. It provides flexibility for various data streams where guaranteed delivery is less critical than high throughput.
 
+For more details about the UDP input settings, check the [Filebeat documentation](https://www.elastic.co/docs/reference/beats/filebeat/filebeat-input-udp).
+
+setup_text: |
+  To collect logs via UDP, select **Collect logs via UDP** and configure the following parameters:
+
 
 ## Setup
-
-### Collecting logs from Custom UDP Logs
 
 
 #### Configuration Parameters
@@ -32,4 +35,3 @@ transmit data via the unreliable but fast UDP protocol, such as syslog messages 
 | Read Buffer Size | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | The size of the read buffer on the UDP socket in the format KiB/MiB, an example would be: 10KiB   |
 | Syslog Options | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | i.e. format, time zone, etc.  |
 | Timeout | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | The read and write timeout for socket operations. Valid time units are ns, us, ms, s, m, h.  |
-

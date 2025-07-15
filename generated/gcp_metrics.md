@@ -7,8 +7,6 @@ collection and typically requires custom ingest pipelines for pre-ingest data pr
 
 ## Setup
 
-### Collecting logs from GCP Metrics Input
-
 
 #### Configuration Parameters
 
@@ -22,10 +20,4 @@ collection and typically requires custom ingest pipelines for pre-ingest data pr
 | GCP Regions | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
 | GCP Service | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
 | GCP Zone | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
-
-#### Advanced Configuration Parameters
-
-| Parameter |  Required | Type | Description |
-| --- | --- | --- | --- |
-| Period | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
 

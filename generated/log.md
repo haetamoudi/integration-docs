@@ -6,13 +6,7 @@ and forwarding them to Elasticsearch or other destinations. This input is essent
 
 ## Setup
 
-### Collecting logs from Custom Logs (Deprecated)
 
-
-#### Configuration Parameters
-
-| Parameter |  Required | Type | Description |
-| --- | --- | --- | --- |
 
 #### Advanced Configuration Parameters
 
@@ -25,4 +19,3 @@ and forwarding them to Elasticsearch or other destinations. This input is essent
 | Log file path | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text | Path to log files to be collected  |
 | Processors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | Processors are used to reduce the number of fields in the exported event or to enhance the event with metadata. This executes in the agent before the logs are parsed. See [Processors](https://www.elastic.co/guide/en/beats/filebeat/current/filtering-and-enhancing-data.html) for details.  |
 | Tags | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Tags to include in the published event  |
-

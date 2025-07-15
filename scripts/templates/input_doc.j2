@@ -5,9 +5,8 @@
 
 ## Setup
 
-### Collecting logs from {{ inp['title'] }}
-
 {{ inp['setup_text'] }}
+{% if has_user_params -%}
 #### Configuration Parameters
 
 | Parameter |  Required | Type | Description |
@@ -18,7 +17,9 @@
 {{ macros.param_row(param) }}
 {% endif %}
 {% endfor %}
+{% endif %}
 
+{% if has_hidden_user_params -%}
 #### Advanced Configuration Parameters
 
 | Parameter |  Required | Type | Description |
@@ -29,4 +30,4 @@
 {{ macros.param_row(param) }}
 {% endif %}
 {% endfor %}
-
+{% endif %}

@@ -6,8 +6,6 @@ structured log data and associated metadata. It helps integrate system-level log
 
 ## Setup
 
-### Collecting logs from Custom Journald logs
-
 
 #### Configuration Parameters
 
@@ -23,4 +21,3 @@ structured log data and associated metadata. It helps integrate system-level log
 | Journal paths | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | List of journals to read from. Defaults to the system journal.   |
 | Processors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | Processors are used to reduce the number of fields in the exported event or to enhance the event with metadata.  This executes in the agent before the logs are parsed. See [Processors](https://www.elastic.co/guide/en/beats/filebeat/current/filtering-and-enhancing-data.html) for details.   |
 | Tags | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text | Tags to include in the published event.   |
-

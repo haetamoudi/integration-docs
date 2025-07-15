@@ -6,8 +6,6 @@ This input is commonly used for receiving webhooks from third-party applications
 
 ## Setup
 
-### Collecting logs from Custom HTTP Endpoint Logs
-
 
 #### Configuration Parameters
 
@@ -44,4 +42,3 @@ This input is commonly used for receiving webhooks from third-party applications
 | Secret Value | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | password | The secret stored in the header name specified by secret.header. Certain webhooks provide the possibility to include a special header and secret to identify the source.  |
 | TLS | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | Options for enabling TLS for the listening webhook endpoint. See the [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-ssl.html) for a list of all options.  |
 | Username | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | If basic_auth is enabled, this is the username used for authentication against the HTTP listener. Requires password to also be set.  |
-

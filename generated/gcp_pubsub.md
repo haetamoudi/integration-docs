@@ -6,8 +6,6 @@ Stackdriver logs. This input is designed for continuous processing, handling cre
 
 ## Setup
 
-### Collecting logs from Custom Google Pub/Sub Logs
-
 
 #### Configuration Parameters
 
@@ -31,4 +29,3 @@ Stackdriver logs. This input is designed for continuous processing, handling cre
 | Subscription Max Outstanding Messages | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | The maximum number of unprocessed messages (unacknowledged but not yet expired). If the value is negative, then there will be no limit on the number of unprocessed messages. Default is 1000.  |
 | Subscription Num Goroutines | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Number of goroutines created to read from the subscription. This does not limit the number of messages that can be processed concurrently or the maximum number of goroutines the input will create.  |
 | Tags | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
-

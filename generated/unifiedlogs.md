@@ -6,8 +6,6 @@ in memory and on disk. This input allows Filebeat to stream these structured eve
 
 ## Setup
 
-### Collecting logs from Custom macOS Unified Logs
-
 
 #### Configuration Parameters
 
@@ -35,4 +33,3 @@ in memory and on disk. This input allows Filebeat to stream these structured eve
 | Custom Configurations | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | YAML configuration options for the input. Be careful, this may break the integration.  |
 | Tags | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Tags to include in the published event  |
 | Trace file | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Display events stored in the given `.tracev3` file. In order to be decoded, the file must be contained within a valid `.logarchive`   |
-

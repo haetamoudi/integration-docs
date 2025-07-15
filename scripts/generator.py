@@ -1,10 +1,42 @@
 from functools import wraps
+from collections import abc
 import os
 from os import path
 import git
 import jinja2
 import shutil
 import yaml
+
+# Docs will be generated for these packages
+INCLUDE_LIST = ["aws-cloudwatch",
+                "aws-s3",
+                "aws/metrics",
+                "awsfargate/metrics",
+                "azure-blob-storage",
+                "azure-eventhub",
+                "azure/metrics",
+                "cel",
+                "entity-analytics",
+                "filestream",
+                "gcp-pubsub",
+                "gcp_metrics",
+                "gcs",
+                "http/metrics"
+                "http_endpoint",
+                "httpjson",
+                "jolokia/metrics",
+                "journald",
+                "logfile",
+                "netflow",
+                "packet",
+                "prometheus/metrics",
+                "redis",
+                "sql/metrics",
+                "statsd/metrics",
+                "system/metrics",
+                "tcp",
+                "udp",
+                "winlog"]
 
 def generate_doc(inputs):
     """
@@ -14,18 +46,26 @@ def generate_doc(inputs):
     """
     # inputs.yaml contains extra info on inputs which isn't contained in the manifest.
     # Add this extra info to each input key before generating the docs
-    extras = {}
     with open(path.join(LOCAL_DIR, 'inputs.yml'), 'r') as extra_f:
-        extras = yaml.safe_load(extra_f)
-    for k in extras.get('inputs').keys():
-        if k in inputs.keys():
-            for item in ['long_desc', 'setup_text']:
-                value = extras['inputs'][k].get(item)
-                if value is not None:
-                    inputs[k][item] = extras['inputs'][k][item]
+        extra_info = yaml.safe_load(extra_f)
+    inputs = merge_recursive(inputs, extra_info)
+
+    print(f'{extra_info.keys()}\n\n\n')
+    print(inputs.keys())
 
     for k,v in inputs.items():
-        write(path.join(GENERATE_DIR, f'{k}.md'), inputs_doc(v))
+        write(path.join(GENERATE_DIR, f'{k.replace("/","_")}.md'), inputs_doc(v))
+
+def merge_recursive(dict1, dict2):
+    merged = dict1.copy()
+    for key, value in dict2.items():
+        if (key in merged and
+                isinstance(merged[key], abc.Mapping) and
+                isinstance(value, abc.Mapping)):
+            merged[key] = merge_recursive(merged[key], value)
+        else:
+            merged[key] = value
+    return merged
 
 def templated(template_name):
     """Decorator function to simplify rendering a template.
@@ -80,7 +120,7 @@ def find_inputs(integrations_dir):
     for file in found_files:
         with open(file, 'r') as f:
             manifest = yaml.safe_load(f)
-            if manifest.get('type') == 'input':
+            if manifest.get('type') == 'input' or manifest.get('name') in INCLUDE_LIST:
                 input_dict[manifest['name']] = manifest
     return input_dict
 
@@ -115,9 +155,23 @@ def inputs_doc(input_info):
     :param input_info: Information on the input
     :returns: Text of the input documentation
     """
-    policy_templates = input_info.get('policy_templates')
-    sorted_params = sorted(policy_templates[0].get('vars'), key=lambda v: v['name'])
-    return {"inp": input_info, "sorted_params": sorted_params}
+    sorted_params = {}
+    if input_info is not None:
+        policy_templates = input_info.get('policy_templates')
+        if policy_templates is not None:
+            var_list =[]
+            for template in policy_templates:
+                var = template.get('vars')
+                if var is not None:
+                    var_list = var_list + template.get('vars')
+                if len(var_list) > 0:
+                    sorted_params = sorted(var_list, key=lambda v: v['name'])
+    has_user_params = any([True if v.get('show_user') else False for v in sorted_params])
+    has_hidden_user_params = any([True if v.get('show_user') == False else False for v in sorted_params])
+    return {"inp": input_info,
+            "sorted_params": sorted_params,
+            "has_user_params": has_user_params,
+            "has_hidden_user_params": has_hidden_user_params}
 
 LOCAL_DIR = path.dirname(path.abspath(__file__))
 TEMPLATE_DIR = path.join(LOCAL_DIR, './templates')

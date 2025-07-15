@@ -6,8 +6,6 @@ application activity. The input supports various ETW providers and can operate i
 
 ## Setup
 
-### Collecting logs from Custom Windows ETW logs
-
 
 #### Configuration Parameters
 
@@ -30,4 +28,3 @@ application activity. The input supports various ETW providers and can operate i
 | Match All Keyword | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Similar to MatchAnyKeyword, this 8-byte bitmask filters events that match all specified keyword bits. Default value is 0 to let every event pass. Run `logman query providers "<provider.name>"` to list the available keywords for a specific provider.  |
 | Match Any Keyword | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | An 8-byte bitmask used for filtering events from specific provider subcomponents based on keyword matching. Any matching keyword will enable the event to be written. Default value is `0xfffffffffffffffff` so it matches every available keyword. Run `logman query providers "<provider.name>"` to list the available keywords for a specific provider.  |
 | Tags | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Tags to include in the published event.  |
-

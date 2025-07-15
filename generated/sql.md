@@ -6,8 +6,6 @@ input is highly flexible, supporting multiple database drivers (e.g., MySQL, Pos
 
 ## Setup
 
-### Collecting logs from SQL Input
-
 
 #### Configuration Parameters
 
@@ -26,4 +24,3 @@ input is highly flexible, supporting multiple database drivers (e.g., MySQL, Pos
 | Period | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
 | Processors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | Processors are used to reduce the number of fields in the exported event or to enhance the event with metadata. This executes in the agent before the events are shipped. See [Processors](https://www.elastic.co/guide/en/fleet/current/elastic-agent-processor-configuration.html) for details.  |
 | SSL Configuration | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | SSL configuration options. See [documentation](https://www.elastic.co/docs/reference/integrations/sql) for details.  |
-

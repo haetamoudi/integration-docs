@@ -7,8 +7,6 @@ can also be gzip compressed.
 
 ## Setup
 
-### Collecting logs from Custom Azure Blob Storage Input
-
 
 #### Configuration Parameters
 
@@ -39,4 +37,3 @@ can also be gzip compressed.
 | Service Account URI | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | This attribute contains the connection string, found under the Access keys section on Azure Cloud, under the respective storage account. A single storage account can contain multiple containers, and they will all use this common connection string.   |
 | Storage URL | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Use this attribute to specify a custom storage URL if required. By default it points to azure cloud storage. Only use this if there is a specific need to connect to a different environment where blob storage is available. URL format : {{protocol}}://{{account_name}}.{{storage_uri}}.   |
 | Timestamp Epoch | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | integer |   |
-

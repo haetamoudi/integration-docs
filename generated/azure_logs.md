@@ -7,8 +7,6 @@ within Kibana. It helps users gain insights into their Azure environment for sec
 
 ## Setup
 
-### Collecting logs from Custom Azure Logs
-
 
 #### Configuration Parameters
 
@@ -38,4 +36,3 @@ within Kibana. It helps users gain insights into their Azure environment for sec
 | Sanitizes Single Quotes | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | bool | Replaces single quotes with double quotes (single quotes inside double quotes are omitted) in logs to ensure proper formatting of JSON data and avoid parsing issues during processing.   |
 | Storage Account Container | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | The storage account container where the integration stores the checkpoint data for the event hub / consumer group. It is an advanced option to use with extreme care. If you are using the [processor_version](https://www.elastic.co/guide/en/integrations/current/azure_logs.html#azure_logs-event-hub-processor-options) v1 (default option), you MUST use a dedicated storage account container for each event hub / consumer group pair. For information about container name restrictions, please refer to the [Container Names](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) section in Microsoft's documentation. If you don't specify a container name, the integration will automatically generate a default one for you.  |
 | Tags | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text |   |
-

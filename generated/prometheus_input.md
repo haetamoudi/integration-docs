@@ -6,8 +6,6 @@ instrumented for Prometheus. It's a crucial component for unifying Prometheus-co
 
 ## Setup
 
-### Collecting logs from Prometheus Input
-
 
 #### Configuration Parameters
 
@@ -31,4 +29,3 @@ instrumented for Prometheus. It's a crucial component for unifying Prometheus-co
 | Metrics Filters Include | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
 | Processors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | Processors are used to reduce the number of fields in the exported event or to enhance the event with metadata. This executes in the agent before the events are shipped. See [Processors](https://www.elastic.co/guide/en/fleet/current/elastic-agent-processor-configuration.html) for details.     |
 | SSL Certificate Authorities | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | SSL Certificate Authorities. See [documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-ssl.html#client-certificate-authorities) for details.  |
-

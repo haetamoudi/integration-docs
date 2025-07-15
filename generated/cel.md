@@ -6,8 +6,6 @@ processes data. This enables advanced users to create flexible data collection p
 
 ## Setup
 
-### Collecting logs from Custom API using Common Expression Language
-
 
 #### Configuration Parameters
 
@@ -65,4 +63,3 @@ processes data. This enables advanced users to create flexible data collection p
 | Resource Timeout | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Duration before declaring that the HTTP client connection has timed out. Valid time units are ns, us, ms, s, m, h. Default is "30"s.  |
 | Tags | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
 | XML Schema Definitions (XSD) for XML documents. | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | textarea | The XSD needed for correct parsing and ingestion of XML documents using decode_xml CEL extension. More information can be found in the [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-cel.html#xsd-cel).   |
-

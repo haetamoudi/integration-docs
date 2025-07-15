@@ -6,8 +6,6 @@ low-latency, full-duplex communication, making it ideal for streaming data like 
 
 ## Setup
 
-### Collecting logs from Custom Websocket logs
-
 
 #### Configuration Parameters
 
@@ -38,4 +36,3 @@ low-latency, full-duplex communication, making it ideal for streaming data like 
 | Processors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | Processors are used to reduce the number of fields in the exported event or to enhance the event with metadata. This executes in the agent before the logs are parsed. See [Processors](https://www.elastic.co/guide/en/beats/filebeat/current/filtering-and-enhancing-data.html) for details.  |
 | SSL Configuration | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | i.e. certificate_authorities, supported_protocols, verification_mode etc, more examples found in the [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-ssl.html#ssl-common-config).  |
 | Tags | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text |   |
-
