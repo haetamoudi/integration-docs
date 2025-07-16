@@ -7,179 +7,33 @@ can also be gzip compressed.
 
 ## Setup
 
-### Collecting logs from Custom Azure Blob Storage Input
 
 #### Configuration Parameters
 
-##### Account Name
-*Required*
-*type*: text
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
+| Account Name | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text | This attribute is required for various internal operations with respect to authentication, creating service clients and blob clients which are used internally for various processing purposes.   |
+| Client ID (OAuth2) | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Client ID of Azure Account. This is required if 'Collect logs using OAuth2 authentication' is enabled.  |
+| Client Secret (OAuth2) | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | password | Client Secret of Azure Account. This is required if 'Collect logs using OAuth2 authentication' is enabled.  |
+| Containers | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | yaml | This attribute contains the details about a specific container like, name, number_of_workers, poll, poll_interval etc. The attribute 'name' is specific to a container as it describes the container name, while the fields number_of_workers, poll, poll_interval can exist both at the container level and at the global level.  If you have already defined the attributes globally, then you can only specify the container name in this yaml config. If you want to override any specific attribute for a container, then, you can define it here. Any attribute defined in the yaml will override the global definitions.  Please see the relevant [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-azure-blob-storage.html#attrib-containers) for further information.   |
+| Dataset name | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text | Dataset to write data to. Changing the dataset will send the data to a different index. You can't use `-` in the name of a dataset and only valid characters for [Elasticsearch index names](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html).   |
+| Maximum number of workers | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | integer | Determines how many workers are spawned per container.  |
+| Collect logs using OAuth2 authentication | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | bool | To collect logs using OAuth2 authentication enable the toggle switch. By default, it will collect logs using service account key or URI.  |
+| Ingest Pipeline | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | The Ingest Node pipeline ID to be used by the integration.   |
+| Polling | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | bool | Determines if the container will be continuously polled for new documents.  |
+| Polling interval | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Determines the time interval between polling operations.  |
+| Preserve original event | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | bool | Preserves a raw copy of the original event, added to the field `event.original`  |
+| Service Account Key | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | password | This attribute contains the access key, found under the Access keys section on Azure Cloud, under the respective storage account. A single storage account can contain multiple containers, and they will all use this common access key.   |
+| Tags | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Tags to include in the published event  |
+| Tenant ID (OAuth2) | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Tenant ID of Azure Account. This is required if 'Collect logs using OAuth2 authentication' is enabled.  |
 
-*description*: This attribute is required for various internal operations with respect to authentication, creating service clients and blob clients which are used internally for various processing purposes.
+#### Advanced Configuration Parameters
 
-##### Client ID (OAuth2)
-*Optional*
-
-*type*: text
-
-*description*: Client ID of Azure Account. This is required if 'Collect logs using OAuth2 authentication' is enabled.
-##### Client Secret (OAuth2)
-*Optional*
-
-*type*: password
-
-*description*: Client Secret of Azure Account. This is required if 'Collect logs using OAuth2 authentication' is enabled.
-##### Containers
-*Required*
-*type*: yaml
-
-*description*: This attribute contains the details about a specific container like, name, number_of_workers, poll, poll_interval etc. The attribute 'name' is specific to a container as it describes the container name, while the fields number_of_workers, poll, poll_interval can exist both at the container level and at the global level.  If you have already defined the attributes globally, then you can only specify the container name in this yaml config. If you want to override any specific attribute for a container, then, you can define it here. Any attribute defined in the yaml will override the global definitions.  Please see the relevant [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-azure-blob-storage.html#attrib-containers) for further information.
-
-##### Dataset name
-*Required*
-*type*: text
-
-*description*: Dataset to write data to. Changing the dataset will send the data to a different index. You can't use `-` in the name of a dataset and only valid characters for [Elasticsearch index names](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html).
-
-##### Maximum number of workers
-*Optional*
-
-*type*: integer
-
-*description*: Determines how many workers are spawned per container.
-##### Collect logs using OAuth2 authentication
-*Required*
-*type*: bool
-
-*description*: To collect logs using OAuth2 authentication enable the toggle switch. By default, it will collect logs using service account key or URI.
-##### Ingest Pipeline
-*Optional*
-
-*type*: text
-
-*description*: The Ingest Node pipeline ID to be used by the integration.
-
-##### Polling
-*Optional*
-
-*type*: bool
-
-*description*: Determines if the container will be continuously polled for new documents.
-##### Polling interval
-*Optional*
-
-*type*: text
-
-*description*: Determines the time interval between polling operations.
-##### Preserve original event
-*Required*
-*type*: bool
-
-*description*: Preserves a raw copy of the original event, added to the field `event.original`
-##### Service Account Key
-*Optional*
-
-*type*: password
-
-*description*: This attribute contains the access key, found under the Access keys section on Azure Cloud, under the respective storage account. A single storage account can contain multiple containers, and they will all use this common access key.
-
-##### Tags
-*Optional*
-
-*type*: text
-
-*description*: Tags to include in the published event
-##### Tenant ID (OAuth2)
-*Optional*
-
-*type*: text
-
-*description*: Tenant ID of Azure Account. This is required if 'Collect logs using OAuth2 authentication' is enabled.
-
-#### Advanced Parameters
-
-#### Account Name
-*Required*
-*type*: text
-
-*description*: This attribute is required for various internal operations with respect to authentication, creating service clients and blob clients which are used internally for various processing purposes.
-
-#### Client ID (OAuth2)
-*Optional*
-
-*type*: text
-
-*description*: Client ID of Azure Account. This is required if 'Collect logs using OAuth2 authentication' is enabled.
-#### Client Secret (OAuth2)
-*Optional*
-
-*type*: password
-
-*description*: Client Secret of Azure Account. This is required if 'Collect logs using OAuth2 authentication' is enabled.
-#### Containers
-*Required*
-*type*: yaml
-
-*description*: This attribute contains the details about a specific container like, name, number_of_workers, poll, poll_interval etc. The attribute 'name' is specific to a container as it describes the container name, while the fields number_of_workers, poll, poll_interval can exist both at the container level and at the global level.  If you have already defined the attributes globally, then you can only specify the container name in this yaml config. If you want to override any specific attribute for a container, then, you can define it here. Any attribute defined in the yaml will override the global definitions.  Please see the relevant [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-azure-blob-storage.html#attrib-containers) for further information.
-
-#### Dataset name
-*Required*
-*type*: text
-
-*description*: Dataset to write data to. Changing the dataset will send the data to a different index. You can't use `-` in the name of a dataset and only valid characters for [Elasticsearch index names](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html).
-
-#### Maximum number of workers
-*Optional*
-
-*type*: integer
-
-*description*: Determines how many workers are spawned per container.
-#### Collect logs using OAuth2 authentication
-*Required*
-*type*: bool
-
-*description*: To collect logs using OAuth2 authentication enable the toggle switch. By default, it will collect logs using service account key or URI.
-#### Ingest Pipeline
-*Optional*
-
-*type*: text
-
-*description*: The Ingest Node pipeline ID to be used by the integration.
-
-#### Polling
-*Optional*
-
-*type*: bool
-
-*description*: Determines if the container will be continuously polled for new documents.
-#### Polling interval
-*Optional*
-
-*type*: text
-
-*description*: Determines the time interval between polling operations.
-#### Preserve original event
-*Required*
-*type*: bool
-
-*description*: Preserves a raw copy of the original event, added to the field `event.original`
-#### Service Account Key
-*Optional*
-
-*type*: password
-
-*description*: This attribute contains the access key, found under the Access keys section on Azure Cloud, under the respective storage account. A single storage account can contain multiple containers, and they will all use this common access key.
-
-#### Tags
-*Optional*
-
-*type*: text
-
-*description*: Tags to include in the published event
-#### Tenant ID (OAuth2)
-*Optional*
-
-*type*: text
-
-*description*: Tenant ID of Azure Account. This is required if 'Collect logs using OAuth2 authentication' is enabled.
-
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
+| Expand Event List From Field | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | If the file-set using this input expects to receive multiple messages bundled under a specific field or an array of objects then the config option for 'expand_event_list_from_field' can be specified. This setting will be able to split the messages under the group value into separate events. This can be specified at the global level or at the container level. For more info please refer to the [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-azure-blob-storage.html#attrib-expand_event_list_from_field).   |
+| File Selectors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | If the container will have events that correspond to files that this integration shouldn’t process, file_selectors can be used to limit the files that are downloaded.  This is a list of selectors which is made up of regex patters. The regex should match the container filepath.  Regexes use [RE2 syntax](https://pkg.go.dev/regexp/syntax). Files that don’t match one of the regexes will not be processed.   |
+| Processors | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | yaml | Processors are used to reduce the number of fields in the exported event or to enhance the event with metadata. This executes in the agent before the logs are parsed. See [Processors](https://www.elastic.co/guide/en/beats/filebeat/current/filtering-and-enhancing-data.html) for details.   |
+| Service Account URI | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | This attribute contains the connection string, found under the Access keys section on Azure Cloud, under the respective storage account. A single storage account can contain multiple containers, and they will all use this common connection string.   |
+| Storage URL | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | text | Use this attribute to specify a custom storage URL if required. By default it points to azure cloud storage. Only use this if there is a specific need to connect to a different environment where blob storage is available. URL format : {{protocol}}://{{account_name}}.{{storage_uri}}.   |
+| Timestamp Epoch | ![Optional](https://img.shields.io/badge/✘-fed10c?style=flat) | integer |   |

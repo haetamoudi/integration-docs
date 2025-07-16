@@ -6,35 +6,11 @@ services. It's a key component for gathering custom performance data and integra
 
 ## Setup
 
-### Collecting logs from StatsD Input
 
 #### Configuration Parameters
 
-##### Listen Address
-*Required*
-*type*: text
-
-*description*: Bind address for the listener. Use 0.0.0.0 to listen on all interfaces.
-
-##### Listen Port
-*Required*
-*type*: text
-
-*description*: Bind port for the listener.
-
-
-#### Advanced Parameters
-
-#### Listen Address
-*Required*
-*type*: text
-
-*description*: Bind address for the listener. Use 0.0.0.0 to listen on all interfaces.
-
-#### Listen Port
-*Required*
-*type*: text
-
-*description*: Bind port for the listener.
-
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
+| Listen Address | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text | Bind address for the listener. Use 0.0.0.0 to listen on all interfaces.   |
+| Listen Port | ![Required](https://img.shields.io/badge/✔-93c93e?style=flat) | text | Bind port for the listener.   |
 

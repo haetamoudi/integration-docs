@@ -1,44 +1,33 @@
+{%- import 'macros.j2' as macros -%}
 # {{ inp['title'] }}
 
 {{ inp['long_desc'] }}
 
 ## Setup
 
-### Collecting logs from {{ inp['title'] }}
-
+{{ inp['setup_text'] }}
+{% if has_user_params -%}
 #### Configuration Parameters
 
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
 {# iterate over all required fields -#}
 {% for param in sorted_params -%}
 {% if param['show_user'] -%}
-##### {{ param['title'] }}
-{% if param['required'] -%}
-*Required*
-{%- else -%}
-*Optional*
-{% endif %}
-
-*type*: {{ param['type'] }}
-
-*description*: {{ param['description'] }}
+{{ macros.param_row(param) }}
 {% endif %}
 {% endfor %}
+{% endif %}
 
-#### Advanced Parameters
+{% if has_hidden_user_params -%}
+#### Advanced Configuration Parameters
 
+| Parameter |  Required | Type | Description |
+| --- | --- | --- | --- |
 {# iterate over all required fields -#}
 {% for param in sorted_params -%}
-{% if param['show_user'] -%}
-#### {{ param['title'] }}
-{% if param['required'] -%}
-*Required*
-{%- else -%}
-*Optional*
-{% endif %}
-
-*type*: {{ param['type'] }}
-
-*description*: {{ param['description'] }}
+{% if not param['show_user'] -%}
+{{ macros.param_row(param) }}
 {% endif %}
 {% endfor %}
-
+{% endif %}
