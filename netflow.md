@@ -5,3 +5,6 @@ Use the netflow input to read NetFlow and IPFIX exported flows and options recor
 ### Collecting logs from Netflow
 
 To collect logs via Netflow, select **Collect logs via Netflow** and configure the following parameters:
+
+- Host
+- Port
