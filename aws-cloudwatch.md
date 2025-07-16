@@ -1,6 +1,6 @@
 ## Setup
 
-1. Set up a [CloudWatch Logs](https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html#setup-cloudwatch-logs-destination) destination.
+Set up a [CloudWatch Logs](https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html#setup-cloudwatch-logs-destination) destination.
 
 ### Collecting logs from CloudWatch
 

@@ -8,28 +8,8 @@ For more details about the GCS Pub/Sub input settings, check the [Filebeat docum
 ### Collecting logs from GCP Pub/Sub
 
 To collect logs via GCP Pub/Sub, select **Collect logs via GCP Pub/Sub** and configure the following parameters:
-
-##### Project ID
-*type*: text
-
-*description*: 
-
-##### Subscription Name
-*type*: text
-
-*description*: 
-
-##### Topic
-*type*: text
-
-*description*: 
-
-#### Credentials File
-*type*: text
-
-*description*: Path to a JSON file containing the credentials and key used to subscribe.
-
-#### Credentials JSON
-*type*: password
-
-*description*: JSON blob containing the credentials and key used to subscribe.
+- Project ID
+- Subscription Name
+- Topic
+- Credentials File: Path to a JSON file containing the credentials and key used to subscribe.
+- Credentials JSON: JSON blob containing the credentials and key used to subscribe.
