@@ -5,4 +5,6 @@ For more details about the Filestream input settings, check the [Filebeat docume
 
 ### Collecting logs from Filestream
 
- Add paths for the filestream as configuration parameters.
+To collect logs via Filestream, select **Collect logs via Filestream** and configure the following parameters:
+
+- Filestream paths: The full path to the related log file.

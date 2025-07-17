@@ -1,6 +1,6 @@
 ## Setup
 
-1. Set up an Amazon S3
+Set up an Amazon S3
 - Create an Amazon S3 bucket. Refer to the link [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html).
 - User can set the parameter "Bucket List Prefix" according to the requirement.
 

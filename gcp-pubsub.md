@@ -8,6 +8,7 @@ For more details about the GCS Pub/Sub input settings, check the [Filebeat docum
 ### Collecting logs from GCP Pub/Sub
 
 To collect logs via GCP Pub/Sub, select **Collect logs via GCP Pub/Sub** and configure the following parameters:
+
 - Project ID
 - Subscription Name
 - Topic
