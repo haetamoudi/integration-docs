@@ -5,3 +5,6 @@ For more details about the UDP input settings, check the [Filebeat documentation
 ### Collecting logs from UDP
 
 To collect logs via UDP, select **Collect logs via UDP** and configure the following parameters:
+
+- Host
+- Port
