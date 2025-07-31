@@ -6,5 +6,11 @@ For more details about the UDP input settings, check the [Filebeat documentation
 
 To collect logs via UDP, select **Collect logs via UDP** and configure the following parameters:
 
+**Required Settings:**
 - Host
 - Port
+
+**Common Optional Settings:**
+- Max Message Size - Maximum size of UDP packets to accept (default: 10KB, max: 64KB)
+- Read Buffer - UDP socket read buffer size for handling bursts of messages
+- Read Timeout - How long to wait for incoming packets before checking for shutdown

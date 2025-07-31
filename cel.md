@@ -2,12 +2,19 @@
 
 For more details about the CEL input settings, check the [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-cel.html).
 
+Before configuring the CEL input, ensure you have:
+- Network connectivity to the target API endpoint
+- Valid authentication credentials (API keys, tokens, or certificates as required)
+- Appropriate permissions to read from the target data source
+
 ### Collecting logs from CEL
 
-To collect logs via CEL, select **Collect logs via CEL** and configure the following parameters:
+To configure the CEL input, you must specify the request.url value pointing to the API endpoint. The interval parameter controls how frequently requests are made and is the primary way to balance data freshness with API rate limits and costs. Authentication is often configured through the request.headers section using the appropriate method for the service.
 
-- Dataset name: Dataset to write data to. Changing the dataset will send the data to a different index. You can't use `-` in the name of a dataset and only valid characters for [Elasticsearch index names](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html).
-- OAuth2 Client ID: Client ID used for OAuth2 authentication
-- OAuth2 Client Secret: Client secret used for OAuth2 authentication
-- OAuth2 Token URL: The URL endpoint that will be used to generate the tokens during the oAuth2 flow. It is required if no oauth_custom variable is set or provider is not specified in oauth_custom variable.
-- Resource URL: i.e. scheme://host:port/path
+NOTE: To access the API service, ensure you have the necessary API credentials and that the Filebeat instance can reach the endpoint URL. Some services may require IP whitelisting or VPN access.
+
+To collect logs via API endpoint, enter the following details:
+
+- API Endpoint URL
+- API credentials (tokens, keys, or username/password)
+- Request interval (how often to fetch data)

@@ -12,5 +12,4 @@ To collect logs via GCP Pub/Sub, select **Collect logs via GCP Pub/Sub** and con
 - Project ID
 - Subscription Name
 - Topic
-- Credentials File: Path to a JSON file containing the credentials and key used to subscribe.
-- Credentials JSON: JSON blob containing the credentials and key used to subscribe.
+- Credentials

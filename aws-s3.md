@@ -12,12 +12,9 @@ Set up an Amazon S3
 
 When log collection from an S3 bucket is enabled, you can access logs from S3 objects referenced by S3 notification events received through an SQS queue or by directly polling the list of S3 objects within the bucket.
 
-The use of SQS notification is preferred: polling list of S3 objects is
-expensive in terms of performance and costs and should be used only
-when no SQS notification can be attached to the S3 buckets. This input
-integration also supports S3 notification from SNS to SQS.
+The use of SQS notification is preferred: polling list of S3 objects is expensive in terms of performance and costs and should be used only when no SQS notification can be attached to the S3 buckets. This input integration also supports S3 notification from SNS to SQS, or from EventBridge to SQS.
 
-To enable the SQS notification method, set the `queue_url` configuration value. To enable the S3 bucket list polling method, configure both the `bucket_arn` and number_of_workers values. Note that `queue_url` and `bucket_arn` cannot be set simultaneously, and at least one of these values must be specified.
+To enable the SQS notification method, set the `queue_url` configuration value. To enable the S3 bucket list polling method, configure both the `bucket_arn` and number_of_workers values. Note that `queue_url` and `bucket_arn` cannot be set simultaneously, and at least one of these values must be specified. The `number_of_workers` parameter is the primary way to control ingestion throughput for both S3 polling and SQS modes. This parameter determines how many parallel workers process S3 objects simultaneously.
 
 NOTE: To access SQS and S3, these [specific AWS permissions](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-aws-s3.html#_aws_permissions_2) are required.
 
