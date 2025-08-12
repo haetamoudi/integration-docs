@@ -4,7 +4,7 @@ For more details about the Azure Blob Storage input settings, check the [Filebea
 ### Collecting logs from Azure Blob Storage
 
 To collect logs via Azure Blob Storage, select **Collect logs via Azure Blob Storage** and configure the following parameters:
-For OAuth2, toggle on **Collect logs using OAuth2 authentication**
+NOTE: For OAuth2, toggle on **Collect logs using OAuth2 authentication**
 
 - Account Name: This attribute is required for various internal operations with respect to authentication, creating service clients and blob clients which are used internally for various processing purposes.
 - Client ID (OAuth2): Client ID of Azure Account. This is required if **Collect logs using OAuth2 authentication** is enabled.
