@@ -1,7 +1,7 @@
 ## Setup
 
 Set up an Amazon S3
-- Create an Amazon S3 bucket. Refer to the link [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html).
+To create an Amazon S3 bucket, follow [these steps](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html).
 - User can set the parameter "Bucket List Prefix" according to the requirement.
 
 - **AWS S3 polling mode**: Writes data to S3, and Elastic Agent polls the S3 bucket by listing its contents and reading new files. 
