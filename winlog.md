@@ -8,4 +8,4 @@ The `winlog` input package for Elastic, is dedicated to collecting Windows event
 
 To collect logs via Winlog, select **Collect logs via Winlog** and configure the following parameters:
 
-- Event IDs: A list of included and excluded (blocked) event IDs. The value is a comma-separated list. The accepted values are single event IDs to include (e.g. 4624), a range of event IDs to include (e.g. 4700-4800), and single event IDs to exclude (e.g. -4735). Limit 22 IDs.
+- Event IDs: A list of included and excluded (blocked) event IDs. The value is a comma-separated list. The accepted values are single event IDs to include (for example, 4624), a range of event IDs to include (for example, 4700-4800), and single event IDs to exclude (for example, -4735). Limit 22 IDs.
