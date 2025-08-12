@@ -25,7 +25,7 @@ NOTE: To access SQS and S3, these [specific AWS permissions](https://www.elastic
   - Bucket ARN or Access Point ARN
   - Session Token
 
-  Alternatively, to collect logs via AWS SQS, enter the following details:
+  Alternatively, to collect logs via AWS SQS, configure the following parameters:
   - Collect logs via S3 Bucket toggled off
   - Queue URL
   - Secret Access Key
