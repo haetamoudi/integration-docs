@@ -4,6 +4,6 @@ For more details about the Journald input settings, check the [Filebeat document
 
 ### Collecting logs from Journald
 
-To collect logs via Journald, select **Collect logs via journald** and configure the following parameters:
+To collect logs via Journald, select **Collect logs via journald** and configure the following parameter:
 
 - Condition: Condition to filter when to apply this input

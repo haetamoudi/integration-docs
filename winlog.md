@@ -4,7 +4,7 @@ For more details about the Winlog input settings, check the [Filebeat documentat
 
 ### Collecting logs from Winlog
 
-The `winlog` input package for Elastic, is dedicated to collecting Windows event logs. It utilizes Windows APIs to read events from various logs such as Application, Security, and System.
+You can use the `winlog` input package for Elastic to collect Windows event logs. It uses Windows APIs to read events from various logs, such as Application, Security, and System.
 
 To collect logs via Winlog, select **Collect logs via Winlog** and configure the following parameter:
 

@@ -4,6 +4,6 @@ For more details about the Http Json input settings, check the [Filebeat documen
 
 ### Collecting logs from Http Json
 
-To collect logs via http json, select **Collect logs via API** and configure the following parameters:
+To collect logs via http json, select **Collect logs via API** and configure the following parameter:
 
 - API url: The API URL without the path.
