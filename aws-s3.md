@@ -18,7 +18,7 @@ To enable the SQS notification method, set the `queue_url` configuration value. 
 
 NOTE: To access SQS and S3, these [specific AWS permissions](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-aws-s3.html#_aws_permissions_2) are required.
 
-  To collect logs via AWS S3, enter the following details:
+  To collect logs via AWS S3, configure the following parameters:
   - Collect logs via S3 Bucket toggled on
   - Access Key ID
   - Secret Access Key
