@@ -6,7 +6,7 @@ To access aws-cloudwatch, these [specific AWS permissions](https://www.elastic.c
 
 ### Collecting logs from CloudWatch
 
-When collecting logs from CloudWatch is enabled, users can retrieve logs from
+When the log collection from CloudWatch is enabled, you can retrieve logs from
 all log streams in a specific log group. `filterLogEvents` AWS API is used to
 list log events from the specified log group. Amazon CloudWatch Logs can be used
 to store log files from Amazon Elastic Compute Cloud(EC2), AWS CloudTrail,
